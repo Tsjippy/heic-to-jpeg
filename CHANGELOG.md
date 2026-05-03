@@ -18,7 +18,7 @@
 
 ### Changed
 - composer updated
-- base namespace to TSJIPPY  Co-authored-by: Copilot <copilot@github.com>
+- base namespace to TSJIPPY  
 - filternames to include tsjippy
 - PLUGINCONSTANT value
 - exclude .vscode from releases
