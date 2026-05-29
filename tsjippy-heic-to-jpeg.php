@@ -24,11 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$pluginData = get_plugin_data(__FILE__, false, false);
+
 
 // Define constants
 define(__NAMESPACE__ .'\PLUGIN', plugin_basename(__FILE__));
 define(__NAMESPACE__ .'\PLUGINPATH', __DIR__.'/');
-define(__NAMESPACE__ .'\PLUGINVERSION', $pluginData['Version']);
+define(__NAMESPACE__ .'\PLUGINVERSION', get_plugin_data(__FILE__, false, false)['Version']);
 define(__NAMESPACE__ .'\SETTINGS', get_option('tsjippy_heictojpeg_settings', []));
 
