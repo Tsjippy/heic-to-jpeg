@@ -6,8 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require( PLUGINPATH  . 'lib/vendor/autoload.php');
-
 // Images in post galleries
 add_filter( 'get_post_galleries',          __NAMESPACE__.'\_imgUrlFilter', PHP_INT_MAX );
 add_filter( 'widget_media_image_instance', __NAMESPACE__.'\_imgUrlFilter', PHP_INT_MAX );
