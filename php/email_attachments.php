@@ -52,7 +52,7 @@ function removeJpg($mailData)
                 // a heic path of this image exists
                 if (file_exists($heicPath)) {
                     // remove the jpg file
-                    unlink($attachment);
+                    wp_delete_file($attachment);
                 }
             }
         }

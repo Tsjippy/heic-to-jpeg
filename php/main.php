@@ -31,7 +31,7 @@ add_filter('wp_get_attachment_url',         __NAMESPACE__ . '\_imgUrlFilter', PH
 add_filter('jetpack_photon_url',           __NAMESPACE__ . '\_imgUrlFilter', 10, 3);
 
 // after upload
-add_filter('file_upload_path',              __NAMESPACE__ . '\replaceHeic');
+add_filter('tsjippy-file-upload-path',              __NAMESPACE__ . '\replaceHeic');
 
 // When using Insert Media pop-up
 add_filter('image_send_to_editor',          __NAMESPACE__ . '\_htmlImgUrlFilter');
