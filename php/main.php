@@ -1,8 +1,10 @@
 <?php
+
 namespace TSJIPPY\HEICTOJPEG;
+
 use TSJIPPY;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
@@ -41,7 +43,8 @@ add_filter('the_content',                   __NAMESPACE__ . '\_htmlImgUrlFilter'
 add_filter('acf/fields/post_object/result', __NAMESPACE__ . '\_htmlImgUrlFilter');
 add_filter('acf/format_value',              __NAMESPACE__ . '\_htmlImgUrlFilter');
 
-function replaceHeic($path) {
+function replaceHeic($path)
+{
     $dest   = str_replace(' .heic', ' .jpeg', $path);
 
     if (_imgUrlFilter($path, $dest)) {
@@ -57,7 +60,8 @@ function replaceHeic($path) {
  * @param string $url of an image
  * @return string
  */
-function _imgUrlFilter($url, $dest='') {
+function _imgUrlFilter($url, $dest = '')
+{
     global $heicConverter;
 
     if (gettype($url) != 'string' || empty($url) || !str_contains($url, ' .heic')) {
@@ -88,13 +92,14 @@ function _imgUrlFilter($url, $dest='') {
  *
  * @return  string              HTML with possibly images that have been filtered
  */
-function _htmlImgUrlFilter($content) {
+function _htmlImgUrlFilter($content)
+{
 
     // find any heic hyperlinks
     preg_match_all('/<a[^<]*?href=(?:\'|")([^<]*?\.heic)(?:\'|").*?>(.*?)<\/a>/', $content, $images);
 
     // loop over all the results, $images[0] contains the whole hyperlink html
-    foreach ($images[0] as $index=>$hyperlink) {
+    foreach ($images[0] as $index => $hyperlink) {
         // if the content of the hyperlink contains already an image
         if (str_contains($images[2][$index], '<img')) {
             continue;

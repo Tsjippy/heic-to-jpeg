@@ -1,5 +1,7 @@
 <?php
+
 namespace TSJIPPY\HEICTOJPEG;
+
 use TSJIPPY;
 
 /**
@@ -20,7 +22,7 @@ use TSJIPPY;
  *
  * @author Ewald Harmsen
  */
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
@@ -31,4 +33,3 @@ define(__NAMESPACE__ . '\PLUGIN', plugin_basename(__FILE__));
 define(__NAMESPACE__ . '\PLUGINPATH', __DIR__ . '/');
 define(__NAMESPACE__ . '\PLUGINVERSION', get_plugin_data(__FILE__, false, false)['Version']);
 define(__NAMESPACE__ . '\SETTINGS', get_option('tsjippy_heictojpeg_settings', []));
-

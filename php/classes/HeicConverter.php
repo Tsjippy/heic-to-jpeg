@@ -1,13 +1,17 @@
 <?php
+
 namespace TSJIPPY\HEICTOJPEG;
+
 use TSJIPPY;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
-class HeicConverter{
-    public function __construct() {
+class HeicConverter
+{
+    public function __construct()
+    {
         $path   = PLUGINPATH  . 'lib/vendor/maestroerror/php-heic-to-jpg/bin/heicToJpg';
         if (!is_executable($path)) {
             chmod($path, 0555);
@@ -22,7 +26,8 @@ class HeicConverter{
      *
      * @return  boolean|string      Whether the conversion was succesfull or if destination is empty the image blob(url)
      */
-    public function convert($path, $dest='') {
+    public function convert($path, $dest = '')
+    {
         $path   = TSJIPPY\urlToPath($path);
 
         if (!is_file($path) || !\Maestroerror\HeicToJpg::isHeic($path)) {
@@ -37,11 +42,11 @@ class HeicConverter{
             if (file_exists($checkPath)) {
                 // Get existing file data
                 $jpg = file_get_contents($checkPath);
-            }else{
+            } else {
                 try {
                     // convert to jpeg
                     $jpg    = \Maestroerror\HeicToJpg::convert($path)->get();
-                } catch ( \Exception $e) {
+                } catch (\Exception $e) {
                     TSJIPPY\printArray($e->getMessage());
                     return False;
                 }
@@ -52,13 +57,13 @@ class HeicConverter{
                 if ($size[0] > 1024 || $size[1] > 1024) {
                     //store the jpeg so that we dont have to reduce again next time
                     $img        = imagecreatefromstring($jpg);
-                    $imgResized = imagescale($img , 1024);
+                    $imgResized = imagescale($img, 1024);
 
                     // Store the file
-                    imagejpeg ($imgResized, $checkPath);
+                    imagejpeg($imgResized, $checkPath);
 
                     $jpg = file_get_contents($checkPath);
-                }else{
+                } else {
                     // store as file
                     $img = imagecreatefromstring($jpg);
                     imagejpeg($img, $checkPath);
@@ -68,14 +73,14 @@ class HeicConverter{
             $base64 = base64_encode($jpg);
 
             return "data:image/jpeg;base64, $base64";
-        }else{
+        } else {
             if (file_exists($dest)) {
                 return True;
             }
 
-            try{
+            try {
                 return \Maestroerror\HeicToJpg::convert($path)->saveAs($dest);
-            }catch (\Exception $e) {
+            } catch (\Exception $e) {
                 TSJIPPY\printArray($e->getMessage());
                 return False;
             }

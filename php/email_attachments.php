@@ -1,14 +1,17 @@
 <?php
+
 namespace TSJIPPY\HEICTOJPEG;
+
 use TSJIPPY;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
 // convert heic attachments to jpg
 add_filter('wp_mail', __NAMESPACE__ . '\wpMail', 10, 1);
-function wpMail($args) {
+function wpMail($args)
+{
     foreach ($args['attachments'] as &$attach) {
         $ext        = pathinfo($attach, PATHINFO_EXTENSION);
 
@@ -37,7 +40,8 @@ add_action('wp_mail_succeeded', __NAMESPACE__ . '\removeJpg');
 
 add_action('wp_mail_failed', __NAMESPACE__ . '\removeJpg');
 
-function removeJpg($mailData) {
+function removeJpg($mailData)
+{
     if (is_array($mailData) && !empty($mailData['attachments'])) {
         // loop over all the attachments
         foreach ($mailData['attachments'] as $attachment) {

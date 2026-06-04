@@ -1,16 +1,19 @@
 <?php
+
 namespace TSJIPPY\HEICTOJPEG;
+
 use TSJIPPY;
 use TSJIPPY\ADMIN;
 
 use function TSJIPPY\addElement;
 use function TSJIPPY\addRawHtml;
 
-if ( ! defined('ABSPATH')) {
+if (! defined('ABSPATH')) {
     exit;
 }
 
-class AdminMenu extends ADMIN\SubAdminMenu{
+class AdminMenu extends ADMIN\SubAdminMenu
+{
 
     /**
      * AdminMenu constructor.
@@ -18,11 +21,13 @@ class AdminMenu extends ADMIN\SubAdminMenu{
      * @param array $settings The settings for the plugin
      * @param string $name The name of the plugin
      */
-    public function __construct($settings, $name) {
+    public function __construct($settings, $name)
+    {
         parent::__construct($settings, $name);
     }
 
-    public function settings($parent) {
+    public function settings($parent)
+    {
 
         $label      = addElement('label', $parent, [], 'Convert .heic files attached to an e-mail to jpeg');
 
@@ -37,19 +42,21 @@ class AdminMenu extends ADMIN\SubAdminMenu{
         return true;
     }
 
-    public function emails($parent) {
+    public function emails($parent)
+    {
 
         return false;
     }
 
-    public function data($parent='') {
+    public function data($parent = '')
+    {
 
         return false;
     }
 
-    public function functions($parent) {
+    public function functions($parent)
+    {
 
         return false;
     }
-
 }
