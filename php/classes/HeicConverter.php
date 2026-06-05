@@ -37,7 +37,7 @@ class HeicConverter
         // We should print it to the screen
         if (empty($dest)) {
             $ext        = pathinfo($path, PATHINFO_EXTENSION);
-            $checkPath  = str_replace(" .$ext", ' .jpeg', $path);
+            $checkPath  = str_replace(" .$ext", '.jpeg', $path);
 
             if (file_exists($checkPath)) {
                 // Get existing file data

@@ -45,7 +45,7 @@ add_filter('acf/format_value',              __NAMESPACE__ . '\_htmlImgUrlFilter'
 
 function replaceHeic($path)
 {
-    $dest   = str_replace(' .heic', ' .jpeg', $path);
+    $dest   = str_replace('.heic', '.jpeg', $path);
 
     if (_imgUrlFilter($path, $dest)) {
         return $dest;
@@ -64,7 +64,7 @@ function _imgUrlFilter($url, $dest = '')
 {
     global $heicConverter;
 
-    if (gettype($url) != 'string' || empty($url) || !str_contains($url, ' .heic')) {
+    if (gettype($url) != 'string' || empty($url) || !str_contains($url, '.heic')) {
         return $url;
     }
 
