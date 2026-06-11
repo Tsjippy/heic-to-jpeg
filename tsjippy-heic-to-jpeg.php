@@ -35,6 +35,6 @@ define(__NAMESPACE__ . '\PLUGINVERSION', get_plugin_data(__FILE__, false, false)
 define(__NAMESPACE__ . '\SETTINGS', get_option('tsjippy_heictojpeg_settings', []));
 
 // Load shared code
-if(file_exists(__DIR__  . '/shared_functionality/loader.php')){
-    require_once(__DIR__  . '/shared_functionality/loader.php');
+if(file_exists(__DIR__  . '/shared-functionality/loader.php')){
+    require_once(__DIR__  . '/shared-functionality/loader.php');
 }
