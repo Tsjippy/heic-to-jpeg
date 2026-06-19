@@ -2,13 +2,18 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- use wp_file_system
 
 ### Changed
 
 ### Fixed
 
 ### Updated
+
+## [10.1.5] - 2026-06-19
+
+
+### Added
+- use wp_file_system
 
 ## [10.1.4] - 2026-06-18
 
