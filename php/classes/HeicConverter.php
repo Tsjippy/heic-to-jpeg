@@ -14,7 +14,8 @@ class HeicConverter
     {
         $path   = PLUGINPATH  . 'lib/vendor/maestroerror/php-heic-to-jpg/bin/heicToJpg';
         if (!is_executable($path)) {
-            chmod($path, 0555);
+            $wpFileSystem   = TSJIPPY\loadWpFileSystem();
+            $wpFileSystem->chmod($path, 0555);
         }
     }
 
