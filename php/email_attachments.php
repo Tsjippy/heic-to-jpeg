@@ -12,22 +12,24 @@ if (! defined('ABSPATH')) {
 add_filter('wp_mail', __NAMESPACE__ . '\wpMail', 10, 1);
 function wpMail($args)
 {
-    foreach ($args['attachments'] as &$attach) {
-        $ext        = pathinfo($attach, PATHINFO_EXTENSION);
+    if(is_array($args['attachments'])){
+        foreach ($args['attachments'] as &$attach) {
+            $ext        = pathinfo($attach, PATHINFO_EXTENSION);
 
-        if ($ext == 'heic') {
-            global $heicConverter;
+            if ($ext == 'heic') {
+                global $heicConverter;
 
-            // only instantiate this class once to speed up
-            if (!isset($heicConverter)) {
-                $heicConverter = new HeicConverter();
-            }
+                // only instantiate this class once to speed up
+                if (!isset($heicConverter)) {
+                    $heicConverter = new HeicConverter();
+                }
 
-            $dest   = str_replace($ext, 'jpg', $attach);
+                $dest   = str_replace($ext, 'jpg', $attach);
 
-            // Convert the heic image
-            if ($heicConverter->convert($attach, $dest)) {
-                $attach = $dest;
+                // Convert the heic image
+                if ($heicConverter->convert($attach, $dest)) {
+                    $attach = $dest;
+                }
             }
         }
     }
