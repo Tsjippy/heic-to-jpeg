@@ -2,6 +2,7 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
+- activate shared code function
 
 ### Changed
 - plugin tested up to 7.0
