@@ -10,6 +10,10 @@ if (! defined('ABSPATH')) {
 
 class HeicConverter
 {
+    /**
+     * HeicConverter constructor.
+     * Ensures that the heicToJpg binary is executable
+     */
     public function __construct()
     {
         $path   = PLUGINPATH  . 'lib/vendor/maestroerror/php-heic-to-jpg/bin/heicToJpg';
