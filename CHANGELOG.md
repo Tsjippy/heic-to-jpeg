@@ -2,14 +2,21 @@
 ## [Unreleased] - yyyy-mm-dd
 
 ### Added
-- activate shared code function
 
 ### Changed
-- plugin tested up to 7.0
 
 ### Fixed
 
 ### Updated
+
+## [10.2.5] - 2026-07-02
+
+
+### Added
+- activate shared code function
+
+### Changed
+- plugin tested up to 7.0
 
 ## [10.2.4] - 2026-06-26
 
