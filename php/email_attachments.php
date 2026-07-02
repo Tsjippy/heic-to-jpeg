@@ -10,6 +10,13 @@ if (! defined('ABSPATH')) {
 
 // convert heic attachments to jpg
 add_filter('wp_mail', __NAMESPACE__ . '\wpMail', 10, 1);
+/**
+ * Convert .heic attachments in emails to .jpg format.
+ *
+ * @param array $args The arguments for the wp_mail function, including attachments.
+ *
+ * @return array The modified arguments with .heic attachments converted to .jpg.
+ */
 function wpMail($args)
 {
     if(is_array($args['attachments'])){
@@ -42,6 +49,13 @@ add_action('wp_mail_succeeded', __NAMESPACE__ . '\removeJpg');
 
 add_action('wp_mail_failed', __NAMESPACE__ . '\removeJpg');
 
+/**
+ * Remove .jpg attachments that were created from .heic files after the email is sent.
+ *
+ * @param array $mailData The data of the sent email, including attachments.
+ *
+ * @return void
+ */
 function removeJpg($mailData)
 {
     if (is_array($mailData) && !empty($mailData['attachments'])) {

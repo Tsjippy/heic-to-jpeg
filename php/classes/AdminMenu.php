@@ -26,6 +26,13 @@ class AdminMenu extends ADMIN\SubAdminMenu
         parent::__construct($settings, $name);
     }
 
+    /**
+     * Render the settings page for the plugin.
+     *
+     * @param string $parent The parent element to which the settings will be added.
+     *
+     * @return bool Returns true if the settings were rendered successfully, false otherwise.
+     */
     public function settings($parent)
     {
 
@@ -42,18 +49,39 @@ class AdminMenu extends ADMIN\SubAdminMenu
         return true;
     }
 
+    /**
+     * Render the emails settings page for the plugin.
+     *
+     * @param string $parent The parent element to which the email settings will be added.
+     *
+     * @return bool Returns false as this plugin does not have email settings.
+     */
     public function emails($parent)
     {
 
         return false;
     }
 
+    /**
+     * Render the data settings page for the plugin.
+     *
+     * @param string $parent The parent element to which the data settings will be added.
+     *
+     * @return bool Returns false as this plugin does not have data settings.
+     */
     public function data($parent = '')
     {
 
         return false;
     }
 
+    /**
+     * Render the functions settings page for the plugin.
+     *
+     * @param string $parent The parent element to which the functions settings will be added.
+     *
+     * @return bool Returns false as this plugin does not have functions settings.
+     */
     public function functions($parent)
     {
 

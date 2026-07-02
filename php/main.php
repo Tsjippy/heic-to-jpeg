@@ -43,6 +43,13 @@ add_filter('the_content',                   __NAMESPACE__ . '\_htmlImgUrlFilter'
 add_filter('acf/fields/post_object/result', __NAMESPACE__ . '\_htmlImgUrlFilter');
 add_filter('acf/format_value',              __NAMESPACE__ . '\_htmlImgUrlFilter');
 
+/**
+ * Replace .heic file extension with .jpeg in the given path.
+ *
+ * @param string $path The original file path.
+ *
+ * @return string The modified file path with .heic replaced by .jpeg.
+ */
 function replaceHeic($path)
 {
     $dest   = str_replace('.heic', '.jpeg', $path);
