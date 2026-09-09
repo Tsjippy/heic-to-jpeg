@@ -7,14 +7,14 @@ use TSJIPPY;
 /**
  * Plugin Name:          Tsjippy HEIC Converter
  * Description:          This plugin will automatically convert heic pictures to jpeg pictures to use in webpages.
- * Version:              10.4.9
+ * Version:              10.5.0
  * Author:               Ewald Harmsen
  * AuthorURI:            harmseninnigeria.nl
  * Requires at least:    6.3
  * Requires PHP:         8.3
- * Tested up to:         7.0
+ * Tested up to:         7.1
  * Plugin URI:            https://github.com/Tsjippy/heictojpeg/
- * Tested:               7.0
+ * Tested:               7.1
  * TextDomain:            tsjippy
  * Requires Plugins:    
  * License: GPLv2 or later
